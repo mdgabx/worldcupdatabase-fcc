@@ -9,7 +9,29 @@ fi
 
 # Do not change code above this line. Use the PSQL variable above to query your database.
 
-cat games.csv | while IFS="," read YEAR ROUND
+echo $($PSQL "TRUNCATE teams, games")
+
+declare -a teams
+
+cat games.csv | while IFS="," read YEAR ROUND WINNER OPPONENT WINNER_GOALS OPPONENT_GOALS
 do 
-  echo $YEAR
+  if [[ $YEAR != 'year' ]]
+  then
+    teams+=("$WINNER" "$OPPONENT")
+  fi
+
+  for team in "${teams[@]}"
+  do
+    TEAM_ID=$($PSQL "SELECT team_id FROM teams WHERE name='$team'")
+
+    if [[ -z $TEAM_ID ]]
+    then
+      INSERT_RESULT=$($PSQL "INSERT INTO teams(name) VALUES('$team')")
+
+      if [[ $INSERT_RESULT == "INSERT 0 1" ]]
+      then
+        echo Insert $team
+      fi
+    fi
+  done
 done
