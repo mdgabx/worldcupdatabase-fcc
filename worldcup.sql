@@ -134,50 +134,82 @@ ALTER TABLE ONLY public.teams ALTER COLUMN team_id SET DEFAULT nextval('public.t
 -- Data for Name: games; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.games VALUES (85, 2018, 'Final', 1767, 1768, 4, 2);
+INSERT INTO public.games VALUES (86, 2018, 'Third Place', 1769, 1770, 2, 0);
+INSERT INTO public.games VALUES (87, 2018, 'Semi-Final', 1768, 1770, 2, 1);
+INSERT INTO public.games VALUES (88, 2018, 'Semi-Final', 1767, 1769, 1, 0);
+INSERT INTO public.games VALUES (89, 2018, 'Quarter-Final', 1768, 1771, 3, 2);
+INSERT INTO public.games VALUES (90, 2018, 'Quarter-Final', 1770, 1772, 2, 0);
+INSERT INTO public.games VALUES (91, 2018, 'Quarter-Final', 1769, 1773, 2, 1);
+INSERT INTO public.games VALUES (92, 2018, 'Quarter-Final', 1767, 1774, 2, 0);
+INSERT INTO public.games VALUES (93, 2018, 'Eighth-Final', 1770, 1775, 2, 1);
+INSERT INTO public.games VALUES (94, 2018, 'Eighth-Final', 1772, 1776, 1, 0);
+INSERT INTO public.games VALUES (95, 2018, 'Eighth-Final', 1769, 1777, 3, 2);
+INSERT INTO public.games VALUES (96, 2018, 'Eighth-Final', 1773, 1778, 2, 0);
+INSERT INTO public.games VALUES (97, 2018, 'Eighth-Final', 1768, 1779, 2, 1);
+INSERT INTO public.games VALUES (98, 2018, 'Eighth-Final', 1771, 1780, 2, 1);
+INSERT INTO public.games VALUES (99, 2018, 'Eighth-Final', 1774, 1781, 2, 1);
+INSERT INTO public.games VALUES (100, 2018, 'Eighth-Final', 1767, 1782, 4, 3);
+INSERT INTO public.games VALUES (101, 2014, 'Final', 1783, 1782, 1, 0);
+INSERT INTO public.games VALUES (102, 2014, 'Third Place', 1784, 1773, 3, 0);
+INSERT INTO public.games VALUES (103, 2014, 'Semi-Final', 1782, 1784, 1, 0);
+INSERT INTO public.games VALUES (104, 2014, 'Semi-Final', 1783, 1773, 7, 1);
+INSERT INTO public.games VALUES (105, 2014, 'Quarter-Final', 1784, 1785, 1, 0);
+INSERT INTO public.games VALUES (106, 2014, 'Quarter-Final', 1782, 1769, 1, 0);
+INSERT INTO public.games VALUES (107, 2014, 'Quarter-Final', 1773, 1775, 2, 1);
+INSERT INTO public.games VALUES (108, 2014, 'Quarter-Final', 1783, 1767, 1, 0);
+INSERT INTO public.games VALUES (109, 2014, 'Eighth-Final', 1773, 1786, 2, 1);
+INSERT INTO public.games VALUES (110, 2014, 'Eighth-Final', 1775, 1774, 2, 0);
+INSERT INTO public.games VALUES (111, 2014, 'Eighth-Final', 1767, 1787, 2, 0);
+INSERT INTO public.games VALUES (112, 2014, 'Eighth-Final', 1783, 1788, 2, 1);
+INSERT INTO public.games VALUES (113, 2014, 'Eighth-Final', 1784, 1778, 2, 1);
+INSERT INTO public.games VALUES (114, 2014, 'Eighth-Final', 1785, 1789, 2, 1);
+INSERT INTO public.games VALUES (115, 2014, 'Eighth-Final', 1782, 1776, 1, 0);
+INSERT INTO public.games VALUES (116, 2014, 'Eighth-Final', 1769, 1790, 2, 1);
 
 
 --
 -- Data for Name: teams; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.teams VALUES (41, 'France');
-INSERT INTO public.teams VALUES (42, 'Croatia');
-INSERT INTO public.teams VALUES (43, 'Belgium');
-INSERT INTO public.teams VALUES (44, 'England');
-INSERT INTO public.teams VALUES (45, 'Russia');
-INSERT INTO public.teams VALUES (46, 'Sweden');
-INSERT INTO public.teams VALUES (47, 'Brazil');
-INSERT INTO public.teams VALUES (48, 'Uruguay');
-INSERT INTO public.teams VALUES (49, 'Colombia');
-INSERT INTO public.teams VALUES (50, 'Switzerland');
-INSERT INTO public.teams VALUES (51, 'Japan');
-INSERT INTO public.teams VALUES (52, 'Mexico');
-INSERT INTO public.teams VALUES (53, 'Denmark');
-INSERT INTO public.teams VALUES (54, 'Spain');
-INSERT INTO public.teams VALUES (55, 'Portugal');
-INSERT INTO public.teams VALUES (56, 'Argentina');
-INSERT INTO public.teams VALUES (57, 'Germany');
-INSERT INTO public.teams VALUES (58, 'Netherlands');
-INSERT INTO public.teams VALUES (59, 'Costa Rica');
-INSERT INTO public.teams VALUES (60, 'Chile');
-INSERT INTO public.teams VALUES (61, 'Nigeria');
-INSERT INTO public.teams VALUES (62, 'Algeria');
-INSERT INTO public.teams VALUES (63, 'Greece');
-INSERT INTO public.teams VALUES (64, 'United States');
+INSERT INTO public.teams VALUES (1767, 'France');
+INSERT INTO public.teams VALUES (1768, 'Croatia');
+INSERT INTO public.teams VALUES (1769, 'Belgium');
+INSERT INTO public.teams VALUES (1770, 'England');
+INSERT INTO public.teams VALUES (1771, 'Russia');
+INSERT INTO public.teams VALUES (1772, 'Sweden');
+INSERT INTO public.teams VALUES (1773, 'Brazil');
+INSERT INTO public.teams VALUES (1774, 'Uruguay');
+INSERT INTO public.teams VALUES (1775, 'Colombia');
+INSERT INTO public.teams VALUES (1776, 'Switzerland');
+INSERT INTO public.teams VALUES (1777, 'Japan');
+INSERT INTO public.teams VALUES (1778, 'Mexico');
+INSERT INTO public.teams VALUES (1779, 'Denmark');
+INSERT INTO public.teams VALUES (1780, 'Spain');
+INSERT INTO public.teams VALUES (1781, 'Portugal');
+INSERT INTO public.teams VALUES (1782, 'Argentina');
+INSERT INTO public.teams VALUES (1783, 'Germany');
+INSERT INTO public.teams VALUES (1784, 'Netherlands');
+INSERT INTO public.teams VALUES (1785, 'Costa Rica');
+INSERT INTO public.teams VALUES (1786, 'Chile');
+INSERT INTO public.teams VALUES (1787, 'Nigeria');
+INSERT INTO public.teams VALUES (1788, 'Algeria');
+INSERT INTO public.teams VALUES (1789, 'Greece');
+INSERT INTO public.teams VALUES (1790, 'United States');
 
 
 --
 -- Name: games_game_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.games_game_id_seq', 1, false);
+SELECT pg_catalog.setval('public.games_game_id_seq', 116, true);
 
 
 --
 -- Name: teams_team_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.teams_team_id_seq', 64, true);
+SELECT pg_catalog.setval('public.teams_team_id_seq', 1790, true);
 
 
 --
@@ -202,6 +234,20 @@ ALTER TABLE ONLY public.teams
 
 ALTER TABLE ONLY public.teams
     ADD CONSTRAINT teams_pkey PRIMARY KEY (team_id);
+
+
+--
+-- Name: teams_name_idx; Type: INDEX; Schema: public; Owner: freecodecamp
+--
+
+CREATE INDEX teams_name_idx ON public.teams USING btree (name);
+
+
+--
+-- Name: teams_name_idx1; Type: INDEX; Schema: public; Owner: freecodecamp
+--
+
+CREATE INDEX teams_name_idx1 ON public.teams USING btree (name);
 
 
 --
