@@ -40,3 +40,4 @@ echo "$($PSQL "SELECT year, name FROM teams LEFT JOIN games ON teams.team_id=gam
 
 echo -e "\nList of teams that start with 'Co':"
 echo "$($PSQL "SELECT name FROM teams LEFT JOIN games ON teams.team_id=games.winner_id OR teams.team_id=games.opponent_id WHERE name LIKE 'Co%' GROUP BY name")"
+
