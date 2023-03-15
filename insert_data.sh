@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 if [[ $1 == "test" ]]
 then
@@ -11,27 +11,32 @@ fi
 
 echo $($PSQL "TRUNCATE teams, games")
 
-declare -a teams
+declare -A teams
 
-cat games.csv | while IFS="," read YEAR ROUND WINNER OPPONENT WINNER_GOALS OPPONENT_GOALS
+while IFS="," read YEAR ROUND WINNER OPPONENT WINNER_GOALS OPPONENT_GOALS
 do 
   if [[ $YEAR != 'year' ]]
-  then
-    teams+=("$WINNER" "$OPPONENT")
+  then 
+    teams["$WINNER"]=1
+    teams["$OPPONENT"]=1
+    
+    TEAM_ID_W=$($PSQL "SELECT team_id FROM teams WHERE name='$WINNER'")
+    if [[ -z $TEAM_ID_W ]]
+    then
+      INSERT_RESULT=$($PSQL "INSERT INTO teams(name) VALUES('$WINNER')")
+    fi
+    
+    TEAM_ID_O=$($PSQL "SELECT team_id FROM teams WHERE name='$OPPONENT'")
+    if [[ -z $TEAM_ID_O ]]
+    then
+      INSERT_RESULT=$($PSQL "INSERT INTO teams(name) VALUES('$OPPONENT')")
+    fi
+    
+    INSERT_GAMES=$($PSQL "INSERT INTO games(year, round, winner_id, opponent_id, winner_goals, opponent_goals) 
+                VALUES ($YEAR, '$ROUND', 
+                  (SELECT team_id FROM teams WHERE name='$WINNER'),
+                  (SELECT team_id FROM teams WHERE name='$OPPONENT'),
+                  $WINNER_GOALS, $OPPONENT_GOALS)")
   fi
 
-  for team in "${teams[@]}"
-  do
-    TEAM_ID=$($PSQL "SELECT team_id FROM teams WHERE name='$team'")
-
-    if [[ -z $TEAM_ID ]]
-    then
-      INSERT_RESULT=$($PSQL "INSERT INTO teams(name) VALUES('$team')")
-
-      if [[ $INSERT_RESULT == "INSERT 0 1" ]]
-      then
-        echo Insert $team
-      fi
-    fi
-  done
-done
+done < games.csv
